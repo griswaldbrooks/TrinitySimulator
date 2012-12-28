@@ -1,0 +1,11 @@
+%%% Robot Navigation Algorithm %%%
+% Input:
+%     ranges    A 1D arrary of scalar distance measurements
+% Output:
+%     v         Robot linear 
+function [v, om] = robotNav(ranges)
+
+
+v = log(ranges(2)/30);
+om = atan(ranges(3) - ranges(1));
+om = 0.4*(om);
