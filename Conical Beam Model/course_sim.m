@@ -43,28 +43,24 @@ field_walls = [outer_walls;island_walls;lr_walls;ll_walls;ur_walls];
 
 %%% ROBOT VARIABLES %%%
 HEADING_LENGTH = 25;
-ROBOT_DIAMETER = 25;
+ROBOT_DIAMETER = 30;
 r_pose = [100,225,(-90)*(pi/180)]'; % Starting pose of the robot [x,y,theta]
 v = 0;  % Linear Velocity, cm/sec
 om = 0; % Angular Velocity, rad/sec
 
 %%% BEAM VARIABLES %%%
-VIEW_ANGLE = (5)*(pi/180);
+VIEW_ANGLE = (60)*(pi/180);
 MAX_BEAM_RANGE = 80; % 0.80 meters
 MIN_BEAM_RANGE = 10; % 0.10 meters
 % Beam Angles
 ang1 = (-45)*(pi/180);
-ang2 = (0)*(pi/180);
-ang3 = (45)*(pi/180);
+ang2 = (45)*(pi/180);
 % Beam Angle Transformation Matricies
 T1 = [cos(ang1),-sin(ang1), 0;
       sin(ang1), cos(ang1), 0;
               0,         0, 1];
 T2 = [cos(ang2),-sin(ang2), 0;
       sin(ang2), cos(ang2), 0;
-              0,         0, 1];
-T3 = [cos(ang3),-sin(ang3), 0;
-      sin(ang3), cos(ang3), 0;
               0,         0, 1];
 
 %%% TIME VARIABLES %%%
@@ -93,18 +89,16 @@ for t = 0:dt:Tf
     % Get ranges to walls
     [range1, feature1] = getRangeBeam(field_walls', VIEW_ANGLE, MAX_BEAM_RANGE, MIN_BEAM_RANGE, T*T1);
     [range2, feature2] = getRangeBeam(field_walls', VIEW_ANGLE, MAX_BEAM_RANGE, MIN_BEAM_RANGE, T*T2);
-    [range3, feature3] = getRangeBeam(field_walls', VIEW_ANGLE, MAX_BEAM_RANGE, MIN_BEAM_RANGE, T*T3);
     
     % Add sensor noise
     range1 = range1 + 0.2*rand(1);
     range2 = range2 + 0.2*rand(1);
-    range3 = range3 + 0.2*rand(1);
+   
     %%% DRAW BEAM %%%
     drawBeam(VIEW_ANGLE, MAX_BEAM_RANGE, range1, T*T1, 'r');
     drawBeam(VIEW_ANGLE, MAX_BEAM_RANGE, range2, T*T2, 'r');
-    drawBeam(VIEW_ANGLE, MAX_BEAM_RANGE, range3, T*T3, 'r');
     
-    ranges = [range1,range2,range3];
+    ranges = [range1,range2];
     
     % *** Robot Navigation *** %
 	vp = v;
