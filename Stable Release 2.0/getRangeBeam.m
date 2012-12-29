@@ -19,15 +19,13 @@ function [range, feature] = getRangeBeam(map, view_angle, max_range, min_range, 
         lambda_perp = (-p_lam'*p_1)/(p_lam'*p_lam);
         p_r = p_1 + lambda_perp*p_lam;
         pp1 = p_r(1)/sqrt(p_r(1)^2 + p_r(2)^2);
-        % Check to see if perpendicular point is in the view angle
-        if(pp1 >= cos(0.5*view_angle))
-        %See if the point is on the line segment
-            if((lambda_perp <= 1)&&(lambda_perp >= 0))
-               % Add distance to range candidates
-                ranges = [ranges, sqrt(p_r(1)^2 + p_r(2)^2)];
-                % Add feature iterator to feature iterator candidates
-                feature_iters = [feature_iters, iter];      
-            end
+        % Check to see if perpendicular point is in the view angle and 
+        % the point is on the line segment
+        if((pp1 >= cos(0.5*view_angle))&&((lambda_perp <= 1)&&(lambda_perp >= 0)))     
+			% Add distance to range candidates
+            ranges = [ranges, sqrt(p_r(1)^2 + p_r(2)^2)];
+            % Add feature iterator to feature iterator candidates
+            feature_iters = [feature_iters, iter];      
         else
             % End Point Test
             % Calculate the unit vector projection along the endpoint line

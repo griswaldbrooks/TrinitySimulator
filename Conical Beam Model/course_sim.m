@@ -50,8 +50,8 @@ om = 0; % Angular Velocity, rad/sec
 
 %%% BEAM VARIABLES %%%
 VIEW_ANGLE = (60)*(pi/180);
-MAX_BEAM_RANGE = 80; % 0.80 meters
-MIN_BEAM_RANGE = 10; % 0.10 meters
+MAX_BEAM_RANGE = 250; % 0.80 meters
+MIN_BEAM_RANGE = 25; % 0.10 meters
 % Beam Angles
 ang1 = (-45)*(pi/180);
 ang2 = (45)*(pi/180);
@@ -67,7 +67,7 @@ T2 = [cos(ang2),-sin(ang2), 0;
 dt = 0.25; % Time step
 Tf = 5000; % Final Time
 
-pause(1);
+pause(5);
 
 % *** ITERATE THROUGH POSITIONS *** %
 for t = 0:dt:Tf
