@@ -13,33 +13,10 @@ axis([-20,max_dim+20,-20,max_dim+20])
 axis square
 
 %%% FIELD WALLS %%%
-%%% Field Walls are set up here as a list of line segments %%%
-% Wall structure [x1,y1;x2,y2] end points of line segment
-outer_wall1 = [0,0;0,max_dim];
-outer_wall2 = [0,0;max_dim,0];
-outer_wall3 = [0,max_dim;max_dim,max_dim];
-outer_wall4 = [max_dim,0;max_dim,max_dim];
-outer_walls = [outer_wall1;outer_wall2;outer_wall3;outer_wall4];
+field_walls = generateFieldWalls(max_dim);
 
-island_wall1 = [202,137;202,202];
-island_wall2 = [118,137;118,202];
-island_wall3 = [118,202;202,202];
-island_wall4 = [164,137;202,137];
-island_walls = [island_wall1;island_wall2;island_wall3;island_wall4];
-
-lr_wall1 = [118,91;200,91];
-lr_wall2 = [118,45;118,0];
-lr_walls = [lr_wall1;lr_wall2];
-
-ll_wall1 = [0,103;72,103];
-ll_wall2 = [72,103;72,46];
-ll_walls = [ll_wall1;ll_wall2];
-
-ur_wall1 = [72,157;72,max_dim];
-ur_wall2 = [46,157;72,157];
-ur_walls = [ur_wall1;ur_wall2];
-
-field_walls = [outer_walls;island_walls;lr_walls;ll_walls;ur_walls];
+%%% GOAL POSITION %%%
+goal = [200,50]';
 
 %%% ROBOT VARIABLES %%%
 HEADING_LENGTH = 25;
@@ -85,6 +62,9 @@ for t = 0:dt:Tf
         line(field_walls(iter:iter+1,1),field_walls(iter:iter+1,2))
     end
     
+    %%% PLOT GOAL %%%
+    plot(goal(1), goal(2), 'm*');
+    
     %%% CALCULATE RANGES %%%
     % Get ranges to walls
     [range1, feature1] = getRangeBeam(field_walls', VIEW_ANGLE, MAX_BEAM_RANGE, MIN_BEAM_RANGE, T*T1);
@@ -103,7 +83,7 @@ for t = 0:dt:Tf
     % *** Robot Navigation *** %
 	vp = v;
     omp = om;
-    [v, om] = robotNav(ranges);    
+    [v, om] = robotNav(ranges, r_pose, goal, vp, omp, dt);    
     
     %%% MOTION NOISE %%%
     v = v + .2*rand(1);

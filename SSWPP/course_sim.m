@@ -6,6 +6,11 @@
 
 cla, clc, clear
 
+figure(2)
+hold all
+axis([0,100,0,100])
+axis square
+
 figure(1)
 hold all
 max_dim = 248; % Maximum field dimensions in centimeters
@@ -13,39 +18,13 @@ axis([-20,max_dim+20,-20,max_dim+20])
 axis square
 
 %%% FIELD WALLS %%%
-%%% Field Walls are set up here as a list of line segments %%%
-% Wall structure [x1,y1;x2,y2] end points of line segment
-outer_wall1 = [0,0;0,max_dim];
-outer_wall2 = [0,0;max_dim,0];
-outer_wall3 = [0,max_dim;max_dim,max_dim];
-outer_wall4 = [max_dim,0;max_dim,max_dim];
-outer_walls = [outer_wall1;outer_wall2;outer_wall3;outer_wall4];
-
-island_wall1 = [202,137;202,202];
-island_wall2 = [118,137;118,202];
-island_wall3 = [118,202;202,202];
-island_wall4 = [164,137;202,137];
-island_walls = [island_wall1;island_wall2;island_wall3;island_wall4];
-
-lr_wall1 = [118,91;200,91];
-lr_wall2 = [118,45;118,0];
-lr_walls = [lr_wall1;lr_wall2];
-
-ll_wall1 = [0,103;72,103];
-ll_wall2 = [72,103;72,46];
-ll_walls = [ll_wall1;ll_wall2];
-
-ur_wall1 = [72,157;72,max_dim];
-ur_wall2 = [46,157;72,157];
-ur_walls = [ur_wall1;ur_wall2];
-
-field_walls = [outer_walls;island_walls;lr_walls;ll_walls;ur_walls];
+field_walls = generateFieldWalls(max_dim);
 
 %%% ROBOT VARIABLES %%%
 HEADING_LENGTH = 25;
 ROBOT_DIAMETER = 30;
 r_pose = [100,225,(-90)*(pi/180)]'; % Starting pose of the robot [x,y,theta]
-v = 0;  % Linear Velocity, cm/sec
+v = 0.000001;  % Linear Velocity, cm/sec
 om = 0; % Angular Velocity, rad/sec
 
 %%% BEAM VARIABLES %%%
@@ -62,6 +41,12 @@ T1 = [cos(ang1),-sin(ang1), 0;
 T2 = [cos(ang2),-sin(ang2), 0;
       sin(ang2), cos(ang2), 0;
               0,         0, 1];
+% Range vectors
+ranges = [0,0];
+rangesp = ranges;
+
+% Local Map
+map = zeros(100); % 10 cm resolution
 
 %%% TIME VARIABLES %%%
 dt = 0.25; % Time step
@@ -98,12 +83,19 @@ for t = 0:dt:Tf
     drawBeam(VIEW_ANGLE, MAX_BEAM_RANGE, range1, T*T1, 'r');
     drawBeam(VIEW_ANGLE, MAX_BEAM_RANGE, range2, T*T2, 'r');
     
+    rangesp = ranges;
     ranges = [range1,range2];
     
     % *** Robot Navigation *** %
 	vp = v;
     omp = om;
-    [v, om] = robotNav(ranges);    
+    [v, om, map] = robotNav(ranges, rangesp, v, om, VIEW_ANGLE, r_pose, T1, T2, map); 
+    
+    % Draw map
+    figure(2)
+    cla
+    surf(map);
+    figure(1)
     
     %%% MOTION NOISE %%%
     v = v + .2*rand(1);
