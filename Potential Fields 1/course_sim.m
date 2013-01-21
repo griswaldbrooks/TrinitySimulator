@@ -21,7 +21,8 @@ goal = [200,50]';
 %%% ROBOT VARIABLES %%%
 HEADING_LENGTH = 25;
 ROBOT_DIAMETER = 30;
-r_pose = [100,225,(-90)*(pi/180)]'; % Starting pose of the robot [x,y,theta]
+%r_pose = [100,225,(-90)*(pi/180)]'; % Starting pose of the robot [x,y,theta]
+r_pose = [25,225,(-90)*(pi/180)]'; % Starting pose of the robot [x,y,theta]
 v = 0;  % Linear Velocity, cm/sec
 om = 0; % Angular Velocity, rad/sec
 
