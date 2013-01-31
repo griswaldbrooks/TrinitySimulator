@@ -26,4 +26,5 @@ ur_wall1 = [72,157;72,max_dim];
 ur_wall2 = [46,157;72,157];
 ur_walls = [ur_wall1;ur_wall2];
 
-field_walls = [outer_walls;island_walls;lr_walls;ll_walls;ur_walls];
+field_walls = 2*[outer_walls;island_walls;lr_walls;ll_walls;ur_walls];
+

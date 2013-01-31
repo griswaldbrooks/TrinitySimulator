@@ -116,9 +116,9 @@ for t = 0:dt:Tf
     % *** Robot Navigation *** %
 	vp = v;
     omp = om;
-    %[v, om, rm1, rm2, rm3] = robotNav_PF1(ranges, rm1, rm2, rm3, r_pose, vp, omp, dt);    
+    [v, om, rm1, rm2, rm3] = robotNav_PF1(ranges, rm1, rm2, rm3, r_pose, vp, omp, dt);    
     %[v, om] = robotNav_RAM1(ranges, rangesp, vp, omp);
-    [v, om] = robotNav_RA1(ranges);
+    %[v, om] = robotNav_RA1(ranges);
     
     %%% MOTION NOISE %%%
     v = v + .2*rand(1);

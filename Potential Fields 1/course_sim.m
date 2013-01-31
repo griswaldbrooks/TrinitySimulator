@@ -9,20 +9,20 @@ cla, clc, clear
 figure(1)
 hold all
 max_dim = 248; % Maximum field dimensions in centimeters
-axis([-20,max_dim+20,-20,max_dim+20])
+axis([-20,2*max_dim+20,-20,2*max_dim+20])
 axis square
 
 %%% FIELD WALLS %%%
 field_walls = generateFieldWalls(max_dim);
 
 %%% GOAL POSITION %%%
-goal = [200,50]';
+goal = [100,400]';
 
 %%% ROBOT VARIABLES %%%
 HEADING_LENGTH = 25;
 ROBOT_DIAMETER = 30;
 %r_pose = [100,225,(-90)*(pi/180)]'; % Starting pose of the robot [x,y,theta]
-r_pose = [175,175,(-90)*(pi/180)]'; % Starting pose of the robot [x,y,theta]
+r_pose = [350,350,(-90)*(pi/180)]'; % Starting pose of the robot [x,y,theta]
 v = 0;  % Linear Velocity, cm/sec
 om = 0; % Angular Velocity, rad/sec
 
@@ -46,6 +46,11 @@ T2 = [cos(ang2),-sin(ang2), 0;
 % rmn(2,x) = angle
 rm1 = zeros(2,5);
 rm2 = zeros(2,5);
+
+%%% NAVIGATION STATE VARIABLES %%%
+% Angular Velocity Low Pass Filter States
+om_s = zeros(2,1);
+
 
 %%% TIME VARIABLES %%%
 dt = 0.25; % Time step
@@ -90,7 +95,7 @@ for t = 0:dt:Tf
     % *** Robot Navigation *** %
 	vp = v;
     omp = om;
-    [v, om, rm1, rm2] = robotNav(ranges, rm1, rm2, r_pose, goal, vp, omp, dt);    
+    [v, om, rm1, rm2, om_s] = robotNav2(ranges, rm1, rm2, r_pose, goal, vp, om_s, dt);    
     
     %%% MOTION NOISE %%%
     v = v + .2*rand(1);
