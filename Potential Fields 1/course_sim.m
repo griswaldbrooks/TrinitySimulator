@@ -1,4 +1,4 @@
-5% This simulator models a differential drive robot moving in a planar
+% This simulator models a differential drive robot moving in a planar
 % environment. It displays the robot with some diameter, but the model does
 % not take that into account, though there is some basic motion dampening
 % modeled. The sensors are modeled as conical beams in the plane, returning
@@ -16,13 +16,16 @@ axis square
 field_walls = generateFieldWalls(max_dim);
 
 %%% GOAL POSITION %%%
-goal = [100,400]';
+goal = [200,250]';
+goal = 450*rand(2,1);
+rand_goal = [0,0]';
 
 %%% ROBOT VARIABLES %%%
 HEADING_LENGTH = 25;
 ROBOT_DIAMETER = 30;
 %r_pose = [100,225,(-90)*(pi/180)]'; % Starting pose of the robot [x,y,theta]
-r_pose = [350,350,(-90)*(pi/180)]'; % Starting pose of the robot [x,y,theta]
+r_pose = [100,150,(-90)*(pi/180)]'; % Starting pose of the robot [x,y,theta]
+r_pose = [450*rand(1),450*rand(1),r_pose(3)];
 v = 0;  % Linear Velocity, cm/sec
 om = 0; % Angular Velocity, rad/sec
 
@@ -47,10 +50,11 @@ T2 = [cos(ang2),-sin(ang2), 0;
 rm1 = zeros(2,5);
 rm2 = zeros(2,5);
 
-%%% NAVIGATION STATE VARIABLES %%%
-% Angular Velocity Low Pass Filter States
-om_s = zeros(2,1);
+%%% ESTIMATED POSES %%%
+poses = zeros(3,100);
 
+%%% TIMER FOR STUCK DETECTION %%%
+stuck_timer = StuckTimer();
 
 %%% TIME VARIABLES %%%
 dt = 0.25; % Time step
@@ -95,7 +99,8 @@ for t = 0:dt:Tf
     % *** Robot Navigation *** %
 	vp = v;
     omp = om;
-    [v, om, rm1, rm2, om_s] = robotNav2(ranges, rm1, rm2, r_pose, goal, vp, om_s, dt);    
+    [v, om, rm1, rm2, poses, stuck_timer, rand_goal] = robotNav2(ranges, r_pose, poses, stuck_timer, rand_goal, rm1, rm2, goal, vp, dt);    
+    
     
     %%% MOTION NOISE %%%
     v = v + .2*rand(1);

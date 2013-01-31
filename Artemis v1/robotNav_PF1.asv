@@ -22,6 +22,9 @@ f_heading = 0.75*[cos(0),sin(0)]';
 % Sum Forces
 f = f_ranges + f_VSRanges + f_heading;
 
+v_desired = 0.5*log((min(ranges)- 10)/10)*(tanh()/);
+
+v = 0.1*vp + 0.9*v_desired;
 om = 0.1*omp + 0.9*(sqrt(f(2)^2 + f(1)^2))*(atan2(f(2),f(1)))*dt;
 
 % Angular Saturation
@@ -30,9 +33,6 @@ if(om > OM_MAX)
 elseif (om < -OM_MAX)
     om = -OM_MAX;
 end
-
-v_desired = 0.5*log((min(ranges)- 10)/10)*(tanh(om)/om);
-v = 0.1*vp + 0.9*v_desired;
 
 % Plot Forces
 plotForce(f_ranges, r_pose, plot_scaler, 'g');

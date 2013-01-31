@@ -70,9 +70,9 @@ T3 = [cos(ang3),-sin(ang3), 0;
 %%% RANGE MEMORY %%%
 % rmn(1,x) = range
 % rmn(2,x) = angle
-rm1 = zeros(2,5);
-rm2 = zeros(2,5);
-rm3 = zeros(2,5);
+rm1 = zeros(2,10);
+rm2 = zeros(2,10);
+rm3 = zeros(2,10);
 
 %%% TIME VARIABLES %%%
 dt = 0.25; % Time step
