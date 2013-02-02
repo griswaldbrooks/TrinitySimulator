@@ -10,6 +10,8 @@ f_range13 = -1/(RANGE_COEFF*((ranges(1) - RANGE_OFF)^2))*[cos(-base_angle + sub_
 f_range14 = -1/(RANGE_COEFF*((ranges(1) - RANGE_OFF)^2))*[cos(-base_angle + 2*sub_angle),sin(-base_angle + 2*sub_angle)]';
 
 f_range1 = f_range10 + f_range11 + f_range12 + f_range13 + f_range14;
+%f_range1 = f_range10 + f_range11 + f_range12;
+%f_range1 = f_range12;
 
 % Left Sensor
 f_range20 = -1/(RANGE_COEFF*((ranges(2) - RANGE_OFF)^2))*[cos(base_angle - 2*sub_angle),sin(base_angle - 2*sub_angle)]';
@@ -19,5 +21,7 @@ f_range23 = -1/(RANGE_COEFF*((ranges(2) - RANGE_OFF)^2))*[cos(base_angle + sub_a
 f_range24 = -1/(RANGE_COEFF*((ranges(2) - RANGE_OFF)^2))*[cos(base_angle + 2*sub_angle),sin(base_angle + 2*sub_angle)]';
 
 f_range2 = f_range20 + f_range21 + f_range22 + f_range23 + f_range24;
+%f_range2 = f_range22 + f_range23 + f_range24;
+%f_range2 = f_range22;
 
 f_ranges = f_range1 + f_range2;

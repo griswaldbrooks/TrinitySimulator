@@ -16,17 +16,16 @@ axis square
 field_walls = generateFieldWalls(max_dim);
 
 %%% GOAL POSITION %%%
-goal = [375,375]';
+goal = [50,450]';
 %goal = 450*rand(2,1);
 rand_goal = [0,0]';
-at_goal = 0;
 
 %%% ROBOT VARIABLES %%%
 HEADING_LENGTH = 25;
 ROBOT_DIAMETER = 30;
 %r_pose = [100,225,(-90)*(pi/180)]'; % Starting pose of the robot [x,y,theta]
-r_pose = [50,450,(-90)*(pi/180)]'; % Starting pose of the robot [x,y,theta]
-%r_pose = [450*rand(1),450*rand(1),r_pose(3)]';
+r_pose = [375,375,(-90)*(pi/180)]'; % Starting pose of the robot [x,y,theta]
+%r_pose = [450*rand(1),450*rand(1),r_pose(3)];
 v = 0;  % Linear Velocity, cm/sec
 om = 0; % Angular Velocity, rad/sec
 
@@ -35,7 +34,7 @@ VIEW_ANGLE = (60)*(pi/180);
 MAX_BEAM_RANGE = 250; % 0.80 meters
 MIN_BEAM_RANGE = 25; % 0.10 meters
 % Beam Angles
-base_angle = 45;
+base_angle = 25;
 ang1 = -base_angle*(pi/180);
 ang2 =  base_angle*(pi/180);
 % Beam Angle Transformation Matricies
@@ -57,9 +56,6 @@ poses = zeros(3,100);
 
 %%% TIMER FOR STUCK DETECTION %%%
 stuck_timer = StuckTimer();
-
-%%% PATH VECTOR %%%
-path = r_pose;
 
 %%% TIME VARIABLES %%%
 dt = 0.25; % Time step
@@ -104,10 +100,8 @@ for t = 0:dt:Tf
     % *** Robot Navigation *** %
 	vp = v;
     omp = om;
-    [v, om, rm1, rm2, poses, stuck_timer, rand_goal, at_goal] = robotNav2(ranges, base_angle, r_pose, poses, stuck_timer, rand_goal, rm1, rm2, goal, at_goal, vp, omp, dt);    
-    if(at_goal == 1)
-        break;
-    end
+    [v, om, rm1, rm2, poses, stuck_timer, rand_goal] = robotNav2(ranges, base_angle, r_pose, poses, stuck_timer, rand_goal, rm1, rm2, goal, vp, omp, dt);    
+    
     
     %%% MOTION NOISE %%%
     v = v + .2*rand(1);
@@ -122,32 +116,5 @@ for t = 0:dt:Tf
     r_pose(1) = r_pose(1) + v*cos(r_pose(3));
     r_pose(2) = r_pose(2) + v*sin(r_pose(3));
     
-    %%% ADD TO PATH %%%
-    if(mod(t,2) == 0)
-        path = [path,r_pose];
-    end
-    
     pause(1/256);
 end
-
-cla
-%%% PLOT WALLS %%%
-for iter = 1:2:length(field_walls)
-    line(field_walls(iter:iter+1,1),field_walls(iter:iter+1,2))
-end
-
-%%% PLOT START %%%
-plot(path(1,1), path(2,1), 'ro');
-text(425,475,'Robot Start');
-plot(420,475, 's', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', 'r');
-
-%%% PLOT GOAL %%%
-plot(goal(1), goal(2), 'm*');
-text(425,460,'Goal');
-plot(420,460, 's', 'MarkerFaceColor', 'm', 'MarkerEdgeColor', 'm');
-
-%%% PLOT PATH %%%
-line(path(1,:), path(2,:), 'Color', 'k');
-line([path(1,length(path)), goal(1)], [path(2,length(path)), goal(2)], 'Color', 'k');
-text(425,445,'Path');
-plot(420,445, 's', 'MarkerFaceColor', 'k', 'MarkerEdgeColor', 'k');

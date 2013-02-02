@@ -4,7 +4,7 @@
 % Output:
 %     v         Robot linear velocity in cm/sec
 %     om        Robot angular velocity in radians/sec
-function [v, om, rm1, rm2, poses, stuck_timer, rand_goal, at_goal] = robotNav2(ranges, base_angle, r_pose, poses, stuck_timer, rand_goal, rm1, rm2, goal, at_goal, vp, omp, dt)
+function [v, om, rm1, rm2, poses, stuck_timer, rand_goal] = robotNav2(ranges, base_angle, r_pose, poses, stuck_timer, rand_goal, rm1, rm2, goal, vp, omp, dt)
 
 % Constants
 plot_scaler = 1000;
@@ -92,6 +92,3 @@ text(70, 6, num2str(om));
 % Update Poses
 poses = updatePoses(poses, v, om, dt);
 
-if( goal_range < 20)
-    at_goal = 1;
-end
