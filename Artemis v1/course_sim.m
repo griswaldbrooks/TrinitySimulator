@@ -4,9 +4,9 @@
 % modeled. The sensors are modeled as conical beams in the plane, returning
 % the distance to the closest object.
 
-cla, clc, clear
+cla, clc, clear all, clf
 
-figure(1)
+subplot(1,2,1);
 hold all
 max_dim = 248; % Maximum field dimensions in centimeters
 axis([-20,max_dim+20,-20,max_dim+20])
@@ -82,8 +82,9 @@ pause(1);
 
 % *** ITERATE THROUGH POSITIONS *** %
 for t = 0:dt:Tf
+    subplot(1,2,1);
     cla
-    
+  
     %%% PLOT ROBOT %%%
     % Robot Transformation Matrix
     T = [cos(r_pose(3)),-sin(r_pose(3)), r_pose(1);
@@ -119,7 +120,7 @@ for t = 0:dt:Tf
     %[v, om, rm1, rm2, rm3] = robotNav_PF1(ranges, rm1, rm2, rm3, r_pose, vp, omp, dt);    
     %[v, om] = robotNav_RAM1(ranges, rangesp, vp, omp);
     %[v, om] = robotNav_RA1(ranges);
-    [v, om] = robotNav_lmap1(ranges);
+    [v, om] = robotNav_lmap1(ranges, dt);
     
     %%% MOTION NOISE %%%
     v = v + .2*rand(1);
