@@ -16,16 +16,16 @@ axis square
 field_walls = generateFieldWalls(max_dim);
 
 %%% GOAL POSITION %%%
-goal = [50,450]';
-%goal = 450*rand(2,1);
+%goal = [50,450]';
+goal = 450*rand(2,1);
 rand_goal = [0,0]';
 
 %%% ROBOT VARIABLES %%%
 HEADING_LENGTH = 25;
 ROBOT_DIAMETER = 30;
-%r_pose = [100,225,(-90)*(pi/180)]'; % Starting pose of the robot [x,y,theta]
-r_pose = [375,375,(-90)*(pi/180)]'; % Starting pose of the robot [x,y,theta]
-%r_pose = [450*rand(1),450*rand(1),r_pose(3)];
+r_pose = [100,225,(-90)*(pi/180)]'; % Starting pose of the robot [x,y,theta]
+%r_pose = [375,375,(-90)*(pi/180)]'; % Starting pose of the robot [x,y,theta]
+r_pose = [450*rand(1),450*rand(1),r_pose(3)];
 v = 0;  % Linear Velocity, cm/sec
 om = 0; % Angular Velocity, rad/sec
 
@@ -100,7 +100,7 @@ for t = 0:dt:Tf
     % *** Robot Navigation *** %
 	vp = v;
     omp = om;
-    [v, om, rm1, rm2, poses, stuck_timer, rand_goal] = robotNav2(ranges, base_angle, r_pose, poses, stuck_timer, rand_goal, rm1, rm2, goal, vp, omp, dt);    
+    [v, om, rm1, rm2, poses, stuck_timer, rand_goal] = robotNav3(ranges, base_angle, r_pose, poses, stuck_timer, rand_goal, rm1, rm2, goal, vp, omp, dt);    
     
     
     %%% MOTION NOISE %%%

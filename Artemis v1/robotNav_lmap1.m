@@ -9,9 +9,9 @@ function [v, om] = robotNav_lmap1(ranges, dt)
 % Map Scaler
 m_sc = 0.5;
 % Max Beam Distance
-RANGE_MAX = 70;
+RANGE_MAX = 1000;
 % Decay Rate
-dc_rt = 0.995;
+dc_rt = 0.95;
 
 % Local Map
 persistent lmap;
@@ -99,9 +99,32 @@ surf(lmap);
 set(gca, 'View', [0,90]);
 axis square
 
-%om = 0.6*atan(ranges(3) - ranges(1));
-om = 20*(atan(ranges(3)) - atan(ranges(1)));
-v = 5*exp(-(om^2))*log(mean([ranges(1),ranges(3)])/30)*log(ranges(2)/50);
+% Navigation
+% ranges(1) is right
+% ranges(2) is center
+% ranges(3) is left
+setpoint = 18.8;
+%%% RIGHT WALL %%%
+if (ranges(1) > (2.5/0.707)*setpoint)
+    om = -2.75;
+    v = 45;
+else
+    if((ranges(2) > 25)&&(0.707*ranges(3) < 30))
+        om = -0.2*(ranges(1) - ranges(3));
+        v = 47;
+    elseif (ranges(2) <= 25)
+        om = 0.175*(ranges(3) - ranges(2));
+        v = 47*log(ranges(2)/setpoint);
+    else
+        om = -0.2*(0.707*ranges(1) - setpoint);
+        v = 47;
+    end
+end
+    
+%om = 20*(atan(ranges(3)) - atan(ranges(1)));
+%v = 5*exp(-(om^2))*log(mean([ranges(1),ranges(3)])/30)*log(ranges(2)/50);
+om = 0.075*om;
+v = 0.025*v;
 
 vp = [v,om]';
 

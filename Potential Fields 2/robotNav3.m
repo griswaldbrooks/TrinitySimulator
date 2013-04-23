@@ -14,7 +14,7 @@ VAR_THRESH = 5;
 
 
 % Calculate Occlusion Forces
-f_ranges = OccForce(ranges, base_angle + 20, sub_angle);
+f_ranges = OccForce3(ranges, base_angle + 20, sub_angle);
 
 % Calculate Virtual Sensor Forces
 f_VSranges = VSForce(rm1, rm2);
@@ -43,18 +43,23 @@ end
 f_heading = 0.01*[cos(0),sin(0)]';
 
 % Sum Forces
-f = f_ranges + f_VSranges + f_goal + f_heading;
+%f = f_ranges + f_VSranges + f_goal + f_heading;
+f = f_ranges + f_heading;
 
-% Calculate Linear Velocity
-v_desired = 0.5*log((min(ranges)- 10)/10)*(0.5*(tanh(goal_range - 10) + 1));
-v = 0.1*vp + 0.9*v_desired;
+
 
 % Calculate Angular Velocity
 th_in = (atan2(f(2),f(1)));
 %TURN_MAGNITUDE = 7.0*(sqrt(f(2)^2 + f(1)^2));
-TURN_MAGNITUDE = 0.5;
+TURN_MAGNITUDE = 0.8;
 %TURN_MAGNITUDE = 2*exp(-v);
 om = TURN_MAGNITUDE*th_in*dt;
+
+% Calculate Linear Velocity
+%v_desired = 0.5*log((min(ranges)- 10)/10)*(0.5*(tanh(goal_range - 10) + 1));
+v_desired = 0.75*log(min(ranges)/30)*(5*exp(-om));
+v = 0.1*vp + 0.9*v_desired;
+
 % Angular Saturation
 if(om > OM_MAX)
     om = OM_MAX;
