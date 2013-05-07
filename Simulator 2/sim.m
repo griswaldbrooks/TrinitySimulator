@@ -15,6 +15,8 @@ r_mass = 5; % (kg)
 wh_radius = 0.05; % (m)
 wh_mass = 0.125;
 wh_inertia = (wh_mass/2)*(wh_radius^2);
+K_acc = ((2/wh_radius)*wh_inertia + wh_radius*r_mass)^-1;
+K_ang = ((r_diameter/wh_radius)*wh_inertia + wh_radius*(r_mass/2))^-1;
 % Robot Pose (x,y,theta)
 r_pose = [0,0,0]';
 v = 0;
@@ -37,8 +39,7 @@ for t = 0:dt:T
     plotRobot(T, r_diameter, HEADING_LENGTH, 'k');
     
     %%% MOTION MODEL %%%
-    K_acc = ((2/wh_radius)*wh_inertia + wh_radius*r_mass)^-1;
-    K_ang = ((r_diameter/wh_radius)*wh_inertia + wh_radius*(r_mass/2))^-1;
+    
     acc_r = K_acc*(torque_r + torque_l);
     ang_r = K_ang*(torque_r - torque_l);
     
@@ -52,7 +53,7 @@ for t = 0:dt:T
     torque_l = 0.8*sin(t);
     torque_r = 0.9*sin(t);
     
-    r_pose
+    %r_pose
     
     pause(1/256);
 end
