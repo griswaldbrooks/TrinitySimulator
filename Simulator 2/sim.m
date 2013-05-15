@@ -23,8 +23,8 @@ L = [D1,D2;
 kf = 0.9;           % Wheel friction coefficient
 kbwr = 2*pi*(10);   % Motor bandwidth
 kbwl = 2*pi*(10);   % Motor bandwidth
-kgr = 0.1;          % Voltage gain
-kgl = 0.1;          % Voltage gain
+kgr = 0.5;          % Voltage gain
+kgl = 0.5;          % Voltage gain
 
 A11 = -kf*inv(L);
 A12 = zeros(2);
@@ -62,7 +62,7 @@ disp('Computing simulation.');
 
 % Calculate simulation
 tic
-[t, x] = ode45('calc_xdot', 0:dt:T, x_init);
+[t, x] = ode23('calc_xdot', 0:dt:T, x_init);
 toc
 
 %input('Pause');

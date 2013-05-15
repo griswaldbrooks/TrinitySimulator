@@ -14,8 +14,8 @@ L = [D1,D2;
 kf = 0.9;           % Wheel friction coefficient
 kbwr = 2*pi*(10);   % Motor bandwidth
 kbwl = 2*pi*(10);   % Motor bandwidth
-kgr = 0.1;          % Voltage gain
-kgl = 0.1;          % Voltage gain
+kgr = 0.5;          % Voltage gain
+kgl = 0.5;          % Voltage gain
 
 % System matricies
 % persistent A11;
@@ -54,7 +54,7 @@ B = [0,   0;
 
 
 % Control input (voltage)
-u = 100*[sin(0.1*t),sin(0.1*t)]';
+u = 10*[sin(0.1*t),sin(0.1*t)]';
 %u = [100,100]';
 % Motion Model
 x_dot = A*x + B*u;
