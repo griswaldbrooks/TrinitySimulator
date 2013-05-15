@@ -1,13 +1,13 @@
 cla, clc, clear
-max_dim = 250;
-axis([-max_dim - 20, max_dim + 20, -max_dim - 20, max_dim + 20])
+max_dim = 2.5;
+axis([-max_dim - 0.2, max_dim + 0.2, -max_dim - 0.2, max_dim + 0.2])
 axis square
 axis manual
 hold all
 
 
 % Plotting variables
-HEADING_LENGTH = 25;
+HEADING_LENGTH = 0.25;
 
 % Robot variables
 r_diameter = 0.25; % (m)
@@ -43,22 +43,33 @@ C = [0.5*wh_radius,        0.5*wh_radius,         0, 0;
 % Robot Pose (x,y,theta)
 r_pose = [0,0,0]';
 % State variables
-x = [0.1,0,0,0]';  % [right wheel velocity, left wheel velocity, 
+x_init = [0,0,0,0]';  % [right wheel velocity, left wheel velocity, 
                  %  right wheel torque, left wheel torque]
-x_dot = [0,0,0,0]';
+%x_dot = [0,0,0,0]';
 % Output variables
 v = 0;
 om = 0;
 y = [v,om]';
 % Control input (voltage)
-u = [0,0]';
+%u = [0,0]';
 
 
 % Time variables (seconds)
-dt = 0.0001;
+dt = 0.1;
 T = 300;
 
-for t = 0:dt:T
+disp('Computing simulation.');
+
+% Calculate simulation
+tic
+[t, x] = ode45('calc_xdot', 0:dt:T, x_init);
+toc
+
+%input('Pause');
+
+disp('Plotting simulation.');
+% Plot simulation
+for n = 1:length(t)
     cla
     
     %%% PLOT ROBOT %%%
@@ -69,11 +80,7 @@ for t = 0:dt:T
     plotRobot(T, r_diameter, HEADING_LENGTH, 'k');
     
     %%% MOTION MODEL %%%
-    
-    x_dot = A*x + B*u;
-    y = C*x;
-    
-    x = x + x_dot*dt;
+    y = C*(x(n,:)');
     
     %y(1) = (1 - 0.002*rand(1))*y(1);
     %y(2) = (1 + 0.0005*rand(1))*y(2);
@@ -85,9 +92,10 @@ for t = 0:dt:T
     r_pose(2) = r_pose(2) + v*sin(r_pose(3))*dt;
     
     r_pose
-    x
-    u = 100*[sin(t),sin(t)]';
+    %x
+    
     %u = [0,0]';
     
     pause(1/256);
 end
+

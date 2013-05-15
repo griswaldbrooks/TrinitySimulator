@@ -1,5 +1,5 @@
 function plotRobot(T, diameter, heading_length, color)
-diameter = diameter*100;
+
 radius = diameter/2;
 % Outline
 for dth = 0:0.1:2*pi
