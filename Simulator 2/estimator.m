@@ -1,4 +1,4 @@
-function [x_dot] = calc_xdot(t, x)
+function x_hat = estimator(y,u)
 
 % Robot variables
 r_diameter = 0.25; % (m)
@@ -32,17 +32,16 @@ B = [0,   0;
      0,   kgl];
 C = [0.5*wh_radius,        0.5*wh_radius,         0, 0;
      wh_radius/r_diameter, -wh_radius/r_diameter, 0, 0];
-
-persistent u;
-if isempty(u)
-    u = [0,0]';
-end
+% Process noise transformation
+F = eye(4);
+% Process noise
+v = [0.01, 0.01, 0.02,0.02]';
+V = v*v'
+% Sensor noise
+w = [0.001,0.001]';
+W = w*w'
+P = are(A', (C'/(W))*C, F*V*F');
+G = P*C'/(W);
  
-% State Estimator
-x_hat = estimator(C*x, u); % Add sensor noise
-% Control input (voltage)
-u = 10*[sin(0.1*t),sin(0.1*t)]';
-
-% Motion Model
-x_dot = A*x + B*u;
-%y = C*x;
+x_hatdot = A*x_hat + B*u - G*(y - C*x_hat);
+x_hat = 0;

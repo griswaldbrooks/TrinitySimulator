@@ -20,13 +20,14 @@ D1 = 2*(0.125*(r_mass*(wh_radius^2)) + 0.5*r_inertia*(wh_radius/r_diameter)^2 + 
 D2 = 0.25*(r_mass*(wh_radius^2)^2) - r_inertia*(wh_radius/r_diameter)^2;
 L = [D1,D2;
      D2,D1];        % Mass Matrix
-kf = 0.9;           % Wheel friction coefficient
+kf = 0.0522;           % Wheel friction coefficient
+%kf = 0.9;           % Wheel friction coefficient
 kbwr = 2*pi*(10);   % Motor bandwidth
 kbwl = 2*pi*(10);   % Motor bandwidth
 kgr = 0.5;          % Voltage gain
 kgl = 0.5;          % Voltage gain
 
-A11 = -kf*inv(L);
+A11 = -kf.*inv(L);
 A12 = zeros(2);
 A21 = inv(L);
 A22 = [-kbwr, 0;
@@ -62,7 +63,7 @@ disp('Computing simulation.');
 
 % Calculate simulation
 tic
-[t, x] = ode23('calc_xdot', 0:dt:T, x_init);
+[t, x] = ode45('calc_xdot', 0:dt:T, x_init);
 toc
 
 %input('Pause');
