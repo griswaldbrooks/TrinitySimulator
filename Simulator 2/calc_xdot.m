@@ -37,15 +37,21 @@ if isempty(u)
     u = [0,0]';
 end
 
-A_hat = A;
+
+
+% Trajectory Reference
+x1_ref = [square(t*(8*pi)),square(t*(8*pi))]';
+
+% Adaptation Mechanism
+A_hat = adapt_sys(x_hat, C*x_act);
 
 % State Estimator
+%x_hat_dot = [0,0,0,0]';
 %x_hat_dot = estimator(A_hat, B, C, x_hat, C*x_act + [0.002*rand(2,1);0.01*rand(2,1)], u);
-x_hat_dot = [0,0,0,0]';
-% Control input (voltage)
-%u = 12*[sin(0.1*t),cos(0.1*t)]';
+x_hat_dot = estimator(A_hat, B, C, x_hat, C*x_act, u);
 
-u = controller(x_act, A_hat, B);
+% Control input (voltage)
+u = controller(x_hat, x1_ref, A_hat, B);
 
 % Motion Model
 x_dot = A*x_act + B*u;
