@@ -1,0 +1,1 @@
+function A_new = adapt_sys(A_old, x_hat, x_act)
