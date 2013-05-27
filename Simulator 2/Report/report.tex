@@ -239,7 +239,7 @@ Following uncertain parameter estimation at each time step the control gain matr
 The simulation was generated in MATLAB using the function {\it ode45} to compute the system model and state estimate. The function {\it are} was used to solve the algebraic Riccati equations.
 The simulation was run for 1 second with a base time step of 0.001 seconds. For the angular velocity reference, a 4 Hz square wave was generated in order to see the system tracking performance.
 The angular velocities were initialized to $\dot\theta_r = 2.1 \frac{rad}{sec}$ and $\dot\theta_l = 1.5 \frac{rad}{sec}$ with zero initial torques. Simulations were run with the uncertain parameters
-to be one order of magnitude greater than the initial estimate but constant and with the uncertain parameters initially known but time-varying. The time variation was done by adding a 2 Hz sine wave
+to be one order of magnitude different than the initial estimate but constant and with the uncertain parameters initially known but time-varying. The time variation was done by adding a 2 Hz sine wave
 with a magnitude of $k_{p_{initial}}$ to all uncertain parameters.
 
 \section{System Performance, Known Parameters}
@@ -274,7 +274,7 @@ Without adaptation, the system performance can be seen in figures \ref{fig:ssUpD
 \end{figure}
 
 \section{System Performance, Adapted \mbox{Parameters}}
-With adaptation, the system performance can be seen in figures \ref{fig:ssApDiagram1} and \ref{fig:seApDiagram1} when the uncertain parameters are taken to be $k_f = 0.1$, $k_{bwr} = 2\pi$, $k_{bwl} = 2\pi$ in the system model.
+With adaptation, the system performance can be seen in figures \ref{fig:ssApDiagram1} and \ref{fig:seApDiagram1} when the uncertain parameters are taken to be $k_f = 0.5$, $k_{bwr} = 2\pi$, $k_{bwl} = 2\pi$ in the system model.
 The proportional error coefficients $\gamma_p$ are all taken to be 0.01.
 \begin{figure}[H!]
 	\centering
@@ -291,7 +291,7 @@ The proportional error coefficients $\gamma_p$ are all taken to be 0.01.
 
 \section{System Performance, Time-Varying Parameters}
 As a basis for comparison, the performance of the LQG is shown in figures \ref{fig:ssTVpDiagram1} and \ref{fig:seTVpDiagram1} with the time-varying parameters in the system model.
-The parameters are $k_f = 0.0522$, $k_{bwr} = 20\pi$, $k_{bwl} = 20\pi$.
+The initial parameters are $k_f = 0.0522$, $k_{bwr} = 20\pi$, $k_{bwl} = 20\pi$.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.75\textwidth]{TV_State1.jpg}
@@ -324,8 +324,8 @@ The proportional error coefficients $\gamma_p$ are all taken to be 0.01.
 
 
 \chapter{Conclusion}
-As can be seen by figures \ref{fig:ssUpDiagram1} and \ref{fig:ssApDiagram1} the performance of the adapted system has reduced the overshoot by an order
-of magnitude, but has developed a steady-state error. An integration term in the adaptation mechanism would most likely correct this problem.
+As can be seen by figures \ref{fig:ssUpDiagram1} and \ref{fig:ssApDiagram1}, the performance of the adapted system has reduced the overshoot by half, 
+but has developed a steady-state error. An integration term in the adaptation mechanism would most likely correct this problem.
 While the adaptation mechanism has improved the performance of the constant parameter uncertainty, as shown in figures \ref{fig:ssTVpDiagram1} and
 \ref{fig:ssATVpDiagram1} the adaptation has degraded the performance of the time-varying system. This is likely due to the order of the adaptation not being
 able to track a sinusoid.
