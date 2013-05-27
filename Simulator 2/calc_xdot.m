@@ -7,17 +7,26 @@ r_mass = 2.5; % (kg)
 r_inertia = 0.5*r_mass*(r_diameter/2)^2;
 wh_radius = 0.05; % (m)
 wh_mass = 0.125;
-wh_inertia = (wh_mass/2)*(wh_radius^2);
+wh_inertia = 0.5*wh_mass*(wh_radius^2);
 D1 = 2*(0.125*(r_mass*(wh_radius^2)) + 0.5*r_inertia*(wh_radius/r_diameter)^2 + 0.5*wh_inertia);
-D2 = 0.25*(r_mass*(wh_radius^2)^2) - r_inertia*(wh_radius/r_diameter)^2;
+D2 = 0.25*r_mass*(wh_radius^2) - r_inertia*(wh_radius/r_diameter)^2;
 L = [D1,D2;
      D2,D1];        % Mass Matrix
-kf = 0.0522;           % Wheel friction coefficient
-kbwr = 2*pi*(10);   % Motor bandwidth
-kbwl = 2*pi*(10);   % Motor bandwidth
 kgr = 0.5;          % Voltage gain
 kgl = 0.5;          % Voltage gain
 
+% Time-Varying
+% kf = 0.0522 + 0.0522*sin(t*4*pi);           % Wheel friction coefficient
+% kbwr = 2*pi*(10) + 2*pi*(10)*sin(t*4*pi);   % Motor bandwidth
+% kbwl = 2*pi*(10) + 2*pi*(10)*sin(t*4*pi);   % Motor bandwidth
+
+% Time-Invariant
+kf = 0.0522;           % Wheel friction coefficient
+kbwr = 2*pi*(10);   % Motor bandwidth
+kbwl = 2*pi*(10);   % Motor bandwidth
+
+
+% Calculate system matrices
 A11 = -kf.*inv(L);
 A12 = zeros(2);
 A21 = inv(L);
@@ -37,8 +46,6 @@ if isempty(u)
     u = [0,0]';
 end
 
-
-
 % Trajectory Reference
 x1_ref = [square(t*(8*pi)),square(t*(8*pi))]';
 
@@ -46,8 +53,6 @@ x1_ref = [square(t*(8*pi)),square(t*(8*pi))]';
 A_hat = adapt_sys(x_hat, C*x_act);
 
 % State Estimator
-%x_hat_dot = [0,0,0,0]';
-%x_hat_dot = estimator(A_hat, B, C, x_hat, C*x_act + [0.002*rand(2,1);0.01*rand(2,1)], u);
 x_hat_dot = estimator(A_hat, B, C, x_hat, C*x_act, u);
 
 % Control input (voltage)

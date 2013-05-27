@@ -1,0 +1,416 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.12)  27 MAY 2013 01:41
+entering extended mode
+**C:/Users/CRRL/Desktop/EL*7253/report.tex
+("C:/Users/CRRL/Desktop/EL 7253/report.tex"
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
+vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
+an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
+romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
+sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
+senglishmax, welsh, loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\report.cls"
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size12.clo"
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pstricks\pstricks.sty"
+Package: pstricks 2011/10/31 v0.52 LaTeX wrapper for `PSTricks' (RN,HV)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pstricks\base\pstricks.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\pst-xkey.tex"
+File: pst-xkey.tex 2005/11/25 v1.6 PSTricks specialization of xkeyval (HA)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.sty"
+Package: xkeyval 2008/08/13 v2.6a package option processing (HA)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkeyval.tex"
+\XKV@toks=\toks14
+\XKV@tempa@toks=\toks15
+\XKV@depth=\count88
+File: xkeyval.tex 2008/08/13 v2.6a key=value parser (HA)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\keyval.tex"))))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pstricks\base\pst-fp.tex"
+`pst-fp' v0.05, 2010/01/17 (hv)
+\pstFP@xs=\count89
+\pstFP@xia=\count90
+\pstFP@xib=\count91
+\pstFP@xfa=\count92
+\pstFP@xfb=\count93
+\pstFP@rega=\count94
+\pstFP@regb=\count95
+\pstFP@regs=\count96
+\pstFP@times=\count97
+)
+\psLoopIndex=\count98
+
+`PSTricks' v2.27  <2012/03/11> (tvz)
+\pst@dima=\dimen103
+\pst@dimb=\dimen104
+\pst@dimc=\dimen105
+\pst@dimd=\dimen106
+\pst@dimg=\dimen107
+\pst@dimh=\dimen108
+\pst@dimm=\dimen109
+\pst@dimn=\dimen110
+\pst@dimo=\dimen111
+\pst@dimp=\dimen112
+\pst@hbox=\box26
+\pst@ibox=\box27
+\pst@boxg=\box28
+\pst@cnta=\count99
+\pst@cntb=\count100
+\pst@cntc=\count101
+\pst@cntd=\count102
+\pst@cntg=\count103
+\pst@cnth=\count104
+\pst@cntm=\count105
+\pst@cntn=\count106
+\pst@cnto=\count107
+\pst@cntp=\count108
+\@zero=\count109
+\pst@toks=\toks16
+("C:\Program Files\MiKTeX 2.9\tex\generic\pstricks\base\pstricks.con")
+\psunit=\dimen113
+\psxunit=\dimen114
+\psyunit=\dimen115
+\pst@C@@rType=\count110
+\pslinewidth=\dimen116
+\psk@startLW=\dimen117
+\psk@endLW=\dimen118
+\pst@customdefs=\toks17
+\pslinearc=\dimen119
+\pst@symbolStep=\dimen120
+\pst@symbolWidth=\dimen121
+\pst@symbolLinewidth=\dimen122
+\everypsbox=\toks18
+\psframesep=\dimen123
+\pslabelsep=\dimen124
+\pst@shift=\dimen125
+\theoverlaybox=\box29
+)
+File: pstricks.tex 2012/03/11 v2.27 `PSTricks' (tvz,hv)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pstricks\base\pst-fp.tex")
+File: pst-fp.tex 2012/03/11 v2.27 `PST-fp' (hv)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count111
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsmath.sty"
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks19
+\ex@=\dimen126
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen127
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count112
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count113
+\leftroot@=\count114
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count115
+\DOTSCASE@=\count116
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box30
+\strutbox@=\box31
+\big@size=\dimen128
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count117
+\c@MaxMatrixCols=\count118
+\dotsspace@=\muskip10
+\c@parentequation=\count119
+\dspbrk@lvl=\count120
+\tag@help=\toks20
+\row@=\count121
+\column@=\count122
+\maxfields@=\count123
+\andhelp@=\toks21
+\eqnshift@=\dimen129
+\alignsep@=\dimen130
+\tagshift@=\dimen131
+\tagwidth@=\dimen132
+\totwidth@=\dimen133
+\lineht@=\dimen134
+\@envbody=\toks22
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks23
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\wrapfig\wrapfig.sty"
+\wrapoverhang=\dimen135
+\WF@size=\dimen136
+\c@WF@wrappedlines=\count124
+\WF@box=\box32
+\WF@everypar=\toks24
+Package: wrapfig 2003/01/31  v 3.6
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+)
+\Gin@req@height=\dimen137
+\Gin@req@width=\dimen138
+)
+("C:\Users\CRRL\Desktop\EL 7253\report.aux")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count125
+\scratchdimen=\dimen139
+\scratchbox=\box33
+\nofMPsegments=\count126
+\nofMParguments=\count127
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count128
+\MPscratchDim=\dimen140
+\MPnumerator=\count129
+\makeMPintoPDFobject=\count130
+\everyMPtoPDFconversion=\toks26
+) [1
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+
+
+Non-PDF special ignored!
+Non-PDF special ignored!{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+[1] ("C:\Users\CRRL\Desktop\EL 7253\report.toc")
+\tf@toc=\write3
+ [1
+
+]
+Chapter 1.
+[2
+
+] <Kinematics1.jpg, id=20, 488.57532pt x 480.29437pt>
+File: Kinematics1.jpg Graphic file (type jpg)
+ <use Kinematics1.jpg>
+Package pdftex.def Info: Kinematics1.jpg used on input line 50.
+(pdftex.def)             Requested size: 195.0pt x 191.6966pt.
+
+[3 <C:/Users/CRRL/Desktop/EL 7253/Kinematics1.jpg>] [4] [5] [6]
+Chapter 2.
+<Certain_State1.jpg, id=39, 610.53094pt x 464.4853pt>
+File: Certain_State1.jpg Graphic file (type jpg)
+ <use Certain_State1.jpg>
+Package pdftex.def Info: Certain_State1.jpg used on input line 250.
+(pdftex.def)             Requested size: 292.5pt x 222.53934pt.
+
+<Certain_StateError1.jpg, id=40, 610.53094pt x 464.4853pt>
+File: Certain_StateError1.jpg Graphic file (type jpg)
+
+<use Certain_StateError1.jpg>
+Package pdftex.def Info: Certain_StateError1.jpg used on input line 256.
+(pdftex.def)             Requested size: 292.5pt x 222.53934pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (22.6279pt too wide) in paragraph at lines 261--261
+[]\OT1/cmr/bx/n/17.28 System Per-for-mance, Un-cer-tain [] 
+ []
+
+<Uncertain_State1.jpg, id=41, 610.53094pt x 464.4853pt>
+File: Uncertain_State1.jpg Graphic file (type jpg)
+
+<use Uncertain_State1.jpg>
+Package pdftex.def Info: Uncertain_State1.jpg used on input line 265.
+(pdftex.def)             Requested size: 292.5pt x 222.53934pt.
+
+<Uncertain_StateError1.jpg, id=42, 610.53094pt x 464.4853pt>
+File: Uncertain_StateError1.jpg Graphic file (type jpg)
+
+<use Uncertain_StateError1.jpg>
+Package pdftex.def Info: Uncertain_StateError1.jpg used on input line 271.
+(pdftex.def)             Requested size: 292.5pt x 222.53934pt.
+
+Overfull \hbox (11.18788pt too wide) in paragraph at lines 276--276
+[]\OT1/cmr/bx/n/17.28 System Per-for-mance, Adapted [] 
+ []
+
+<Adapted_State1.jpg, id=43, 610.53094pt x 464.4853pt>
+File: Adapted_State1.jpg Graphic file (type jpg)
+ <use Adapted_State1.jpg>
+Package pdftex.def Info: Adapted_State1.jpg used on input line 281.
+(pdftex.def)             Requested size: 292.5pt x 222.53934pt.
+
+<Adapted_StateError1.jpg, id=44, 610.53094pt x 464.4853pt>
+File: Adapted_StateError1.jpg Graphic file (type jpg)
+
+<use Adapted_StateError1.jpg>
+Package pdftex.def Info: Adapted_StateError1.jpg used on input line 287.
+(pdftex.def)             Requested size: 292.5pt x 222.53934pt.
+ [7
+
+]
+<TV_State1.jpg, id=49, 610.53094pt x 464.4853pt>
+File: TV_State1.jpg Graphic file (type jpg)
+ <use TV_State1.jpg>
+Package pdftex.def Info: TV_State1.jpg used on input line 297.
+(pdftex.def)             Requested size: 292.5pt x 222.53934pt.
+
+<TV_StateError1.jpg, id=50, 610.53094pt x 464.4853pt>
+File: TV_StateError1.jpg Graphic file (type jpg)
+ <use TV_StateError1.jpg>
+Package pdftex.def Info: TV_StateError1.jpg used on input line 303.
+(pdftex.def)             Requested size: 292.5pt x 222.53934pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (31.5998pt too wide) in paragraph at lines 308--308
+[]\OT1/cmr/bx/n/17.28 System Per-for-mance, Adapted Time-Varying
+ []
+
+<ATV_State1.jpg, id=51, 610.53094pt x 464.4853pt>
+File: ATV_State1.jpg Graphic file (type jpg)
+ <use ATV_State1.jpg>
+Package pdftex.def Info: ATV_State1.jpg used on input line 314.
+(pdftex.def)             Requested size: 292.5pt x 222.53934pt.
+
+<ATV_StateError1.jpg, id=52, 610.53094pt x 464.4853pt>
+File: ATV_StateError1.jpg Graphic file (type jpg)
+
+<use ATV_StateError1.jpg>
+Package pdftex.def Info: ATV_StateError1.jpg used on input line 320.
+(pdftex.def)             Requested size: 292.5pt x 222.53934pt.
+ [8 <C:/Users/CRRL/Desktop/EL 7253/Certain_State1.jpg>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9 <C:/Users/CRRL/Desktop/EL 7253/Certain_StateError1.jpg>] [10 <C:/Users/CRRL/
+Desktop/EL 7253/Uncertain_State1.jpg> <C:/Users/CRRL/Desktop/EL 7253/Uncertain_
+StateError1.jpg>] [11 <C:/Users/CRRL/Desktop/EL 7253/Adapted_State1.jpg> <C:/Us
+ers/CRRL/Desktop/EL 7253/Adapted_StateError1.jpg>] [12 <C:/Users/CRRL/Desktop/E
+L 7253/TV_State1.jpg> <C:/Users/CRRL/Desktop/EL 7253/TV_StateError1.jpg>]
+[13 <C:/Users/CRRL/Desktop/EL 7253/ATV_State1.jpg> <C:/Users/CRRL/Desktop/EL 72
+53/ATV_StateError1.jpg>]
+Chapter 3.
+[14
+
+] [15
+
+] ("C:\Users\CRRL\Desktop\EL 7253\report.aux") ) 
+Here is how much of TeX's memory you used:
+ 3874 strings out of 494045
+ 50842 string characters out of 3148389
+ 134314 words of memory out of 3000000
+ 7137 multiletter control sequences out of 15000+200000
+ 10886 words of font info for 39 fonts, out of 3000000 for 9000
+ 715 hyphenation exceptions out of 8191
+ 32i,8n,38p,292b,282s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
+8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmti12.pfb>
+Output written on report.pdf (17 pages, 547845 bytes).
+PDF statistics:
+ 116 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+
